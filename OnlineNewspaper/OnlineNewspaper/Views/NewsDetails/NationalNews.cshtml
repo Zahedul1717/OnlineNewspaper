@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OnlineNewspaper.Models.NewsDetails>
+
+@{
+    ViewData["Title"] = "NationalNews";
+}
+
+<h1>NationalNews</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div style="width:100%; float:left; background-color: gainsboro">
+    @foreach (var item in Model)
+    {
+        <div style="float:left; box-shadow:1px; height:400px; width:260px; padding:10px; border: 1px solid gainsboro; background-color:white">
+            <div style="padding-right:1px">
+                <img style="height:200px; width:100%" src="@item.Image"
+                     asp-append-version="true" alt="@item.Image" />
+            </div>
+            <div style="padding-right:1px;">
+                <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical; font-weight:bold; font-size:20px">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </p>
+            </div>
+            <div style="padding-right:1px;">
+                <p style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical">@Html.DisplayFor(modelItem => item.NewsBody)</p>
+            </div>
+
+            <div style="padding-right:1px">
+                <a asp-action="Details" asp-route-id="@item.NewsDetailsID">Read More....</a>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,26 @@
+﻿@model OnlineNewspaper.Models.NewsDetails
+@*@{ 
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}*@
+<hr />
+
+<div style="width: 70%;">
+    <div style=" margin: 2px auto auto auto; align-items:center">
+        <div class="col-sm-10;">
+            <h1>
+                @Html.DisplayFor(model => model.Title)
+            </h1>
+        </div>
+        <br />
+        <div class="col-sm-10">
+            <img style="height:450px; width:100%" src="@Html.DisplayFor(model => model.Image)" />
+        </div>
+        <hr />
+        <div  style="text-align:justify">
+            @Html.DisplayFor(model => model.NewsBody)
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
